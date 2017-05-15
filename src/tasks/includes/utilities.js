@@ -21,7 +21,7 @@ const utilities = {
    * @memberof slate-cli.utilities
    */
   outputErrors: () => {
-    if (!errors.length) {
+    if (errors.length <= 0) {
       return;
     }
 
