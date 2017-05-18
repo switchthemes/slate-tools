@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const uglify = require('gulp-uglify');
 const include = require('gulp-include');
 const plumber = require('gulp-plumber');
+const rename = require('gulp-rename');
 const chokidar = require('chokidar');
 
 const config = require('./includes/config.js');
@@ -13,6 +14,12 @@ function processThemeJs() {
   return gulp.src([config.roots.js, `!${config.roots.vendorJs}`])
     .pipe(plumber(utils.errorHandler))
     .pipe(include())
+    .pipe(gulp.dest(config.dist.assets))
+    .pipe(uglify({
+      mangle: true,
+      compress: true
+    }))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(config.dist.assets));
 }
 
