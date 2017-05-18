@@ -59,7 +59,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/Shopify/slate-tools.git"
+    "url": "git://github.com/stylehatch/slate-tools.git"
   },
   "homepage": "https://github.com/Shopify/slate-tools",
   "bugs": {
