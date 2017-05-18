@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const uglify = require('gulp-uglify');
 const include = require('gulp-include');
 const plumber = require('gulp-plumber');
-const rename = require('gulp-rename');
+const extReplace = require('gulp-ext-replace');
 const chokidar = require('chokidar');
 
 const config = require('./includes/config.js');
@@ -19,9 +19,7 @@ function processThemeJs() {
       mangle: true,
       compress: true,
     }))
-    .pipe(rename({
-      suffix: '.min',
-    }))
+    .pipe(extReplace('.min.js.liquid', '.js.liquid'))
     .pipe(gulp.dest(config.dist.assets));
 }
 
