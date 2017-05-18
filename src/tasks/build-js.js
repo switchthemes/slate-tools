@@ -17,9 +17,11 @@ function processThemeJs() {
     .pipe(gulp.dest(config.dist.assets))
     .pipe(uglify({
       mangle: true,
-      compress: true
+      compress: true,
     }))
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({
+      suffix: '.min',
+    }))
     .pipe(gulp.dest(config.dist.assets));
 }
 
