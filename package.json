@@ -19,6 +19,7 @@
     "gulp-cheerio": "0.6.2",
     "gulp-cssimport": "5.0.0",
     "gulp-ext-replace": "0.3.0",
+    "gulp-ignore": "2.0.2",
     "gulp-include": "2.3.1",
     "gulp-plumber": "1.1.0",
     "gulp-size": "2.1.0",

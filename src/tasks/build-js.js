@@ -3,6 +3,7 @@ const uglify = require('gulp-uglify');
 const include = require('gulp-include');
 const plumber = require('gulp-plumber');
 const extReplace = require('gulp-ext-replace');
+const ignore = require('gulp-ignore');
 const chokidar = require('chokidar');
 
 const config = require('./includes/config.js');
@@ -15,11 +16,12 @@ function processThemeJs() {
     .pipe(plumber(utils.errorHandler))
     .pipe(include())
     .pipe(gulp.dest(config.dist.assets))
+    .pipe(ignore.include('**/*.js'))
     .pipe(uglify({
       mangle: true,
       compress: true,
     }))
-    .pipe(extReplace('.min.js.liquid', '.js.liquid'))
+    .pipe(extReplace('.min.js', '.js'))
     .pipe(gulp.dest(config.dist.assets));
 }
 

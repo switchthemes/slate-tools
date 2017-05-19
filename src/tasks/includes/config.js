@@ -49,7 +49,7 @@ const config = {
   src: {
     root: 'src/',
     js: 'src/scripts/**/*.{js,js.liquid}',
-    vendorJs: 'src/scripts/vendor/*.js',
+    vendorJs: 'src/scripts/vendor/**/*.js',
     json: 'src/**/*.json',
     css: 'src/styles/**/*.{css,scss,scss.liquid}',
     cssLint: 'src/styles/**/*.{css,scss}',
