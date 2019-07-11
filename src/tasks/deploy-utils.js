@@ -22,16 +22,12 @@ function deploy(env) {
   return new Promise((resolve, reject) => {
     debug(`themekit cwd to: ${config.dist.root}`);
 
-    themekit.command({
-      args: ['replace', '--env', env],
-      cwd: config.dist.root,
-    }, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
+    themekit.command('deploy', {
+      env: env,
+    }, {
+        cwd: config.dist.root
+    }).then(resolve())
+    .catch(err => reject(err));
   }).catch((err) => {
     messages.logTransferFailed(err);
   });
