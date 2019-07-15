@@ -52,7 +52,7 @@
     "prepublish": "npm test && npm run clean && babel -d lib/ src/",
     "lint": "eslint --max-warnings 0 -c .eslintrc.json src/",
     "lint-allow-warning": "eslint -c .eslintrc.json src/",
-    "postinstall": "node_modules/@shopify/themekit/theme update"
+    "postinstall": "node_modules/@shopify/themekit/bin/theme update"
   },
   "keywords": [
     "shopify",
