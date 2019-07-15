@@ -64,7 +64,7 @@ const config = {
     layout: 'src/layout/*',
     pages: 'src/pages/*',
     frames: 'src/frames/*',
-    content: 'src/content/*'
+    content: 'src/content/*',
   },
 
   dist: {
@@ -77,7 +77,7 @@ const config = {
     locales: 'dist/locales/',
     pages: 'dist/pages/',
     frames: 'dist/frames/',
-    content: 'dist/content/'
+    content: 'dist/content/',
   },
 
   roots: {

@@ -14,8 +14,6 @@ const environment = config.environment.split(/\s*,\s*|\s+/)[0];
 // prevent early execution on multi-file events
 const debouncedDeployStatus = _.debounce(checkDeployStatus, 320);
 
-var gutil = require('gulp-util');
-
 let activeDeploy = false;
 
 /**
@@ -51,25 +49,16 @@ function deploy(cmd, files, env) {
   messages.logChildProcess(cmd);
   activeDeploy = true;
 
-  gutil.log('cmd:');
-  gutil.log(cmd);
-  gutil.log('files:');
-  gutil.log(files);
-  gutil.log('env:');
-  gutil.log(files);
-  gutil.log('cwd:');
-  gutil.log(config.dist.root);
-
   return new Promise((resolve, reject) => {
     debug(`themekit cwd to: ${config.dist.root}`);
     themekit.command(cmd, {
-      env: env,
-      files: files,
+      env,
+      files,
     },
-    {
-      cwd: config.dist.root
-    }).then(resolve())
-    .catch(err => reject(err));
+      {
+        cwd: config.dist.root,
+      }).then(resolve())
+      .catch((err) => reject(err));
   }).then(() => {
     activeDeploy = false;
     fs.appendFileSync(config.deployLog, messages.logDeploys(cmd, files)); // eslint-disable-line no-sync

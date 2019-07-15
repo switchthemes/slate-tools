@@ -23,11 +23,11 @@ function deploy(env) {
     debug(`themekit cwd to: ${config.dist.root}`);
 
     themekit.command('deploy', {
-      env: env,
+      env,
     }, {
-        cwd: config.dist.root
+      cwd: config.dist.root,
     }).then(resolve())
-    .catch(err => reject(err));
+      .catch((err) => reject(err));
   }).catch((err) => {
     messages.logTransferFailed(err);
   });
