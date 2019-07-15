@@ -6,5 +6,5 @@ Slate 0.x for Section themes
 
 Make sure the global version of Themekit is updated:
 
-`theme version`
+`theme version`   
 `theme update`
