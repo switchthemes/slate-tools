@@ -55,18 +55,19 @@ function deploy(cmd, files, env) {
       env,
       files,
     },
-    {
-      cwd: config.dist.root,
-    }).then(() => {
-      resolve()
-      activeDeploy = false;
-      fs.appendFileSync(config.deployLog, messages.logDeploys(cmd, files)); // eslint-disable-line no-sync
-      checkDeployStatus();
-    }).catch((err) => {
-      activeDeploy = false;
-      messages.logTransferFailed(err);
-      checkDeployStatus();
-    });
+      {
+        cwd: config.dist.root,
+      }).then(() => {
+        resolve();
+        activeDeploy = false;
+        fs.appendFileSync(config.deployLog, messages.logDeploys(cmd, files)); // eslint-disable-line no-sync
+        return checkDeployStatus();
+      }).catch((err) => {
+        reject();
+        activeDeploy = false;
+        messages.logTransferFailed(err);
+        return checkDeployStatus();
+      });
   });
 }
 

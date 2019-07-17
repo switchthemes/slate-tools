@@ -27,9 +27,10 @@ function deploy(env) {
     }, {
       cwd: config.dist.root,
     }).then(resolve())
-    .catch((err) => {
-      messages.logTransferFailed(err);
-    });
+      .catch((err) => {
+        reject();
+        messages.logTransferFailed(err);
+      });
   });
 }
 
