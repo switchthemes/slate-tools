@@ -2,9 +2,12 @@
 Slate 0.x for Section themes
 
 
-## Update Themekit
+## Update Themekit binaries
 
-Make sure the global version of Themekit is updated:
+Make sure Themekit is updated:
 
 `theme version`   
 `theme update`
+
+`node_modules/@shopify/themekit/bin/theme version`
+`node_modules/@shopify/themekit/bin/theme update`
