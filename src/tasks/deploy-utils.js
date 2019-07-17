@@ -26,10 +26,10 @@ function deploy(env) {
       env,
     }, {
       cwd: config.dist.root,
+    }).then(resolve())
+    .catch((err) => {
+      messages.logTransferFailed(err);
     });
-  }).then(resolve())
-  .catch((err) => {
-    messages.logTransferFailed(err);
   });
 }
 
