@@ -49,26 +49,22 @@ function deploy(cmd, files, env) {
   messages.logChildProcess(cmd);
   activeDeploy = true;
 
-  return new Promise((resolve, reject) => {
-    debug(`themekit cwd to: ${config.dist.root}`);
-    themekit.command(cmd, {
-      env,
-      files,
-    },
-      {
-        cwd: config.dist.root,
-      }).then(() => {
-        resolve();
-        activeDeploy = false;
-        fs.appendFileSync(config.deployLog, messages.logDeploys(cmd, files)); // eslint-disable-line no-sync
-        return checkDeployStatus();
-      }).catch((err) => {
-        reject();
-        activeDeploy = false;
-        messages.logTransferFailed(err);
-        return checkDeployStatus();
-      });
-  });
+  debug(`themekit cwd to: ${config.dist.root}`);
+  return themekit.command(cmd, {
+    env,
+    files,
+  },
+    {
+      cwd: config.dist.root,
+    }).then(() => {
+      activeDeploy = false;
+      fs.appendFileSync(config.deployLog, messages.logDeploys(cmd, files)); // eslint-disable-line no-sync
+      return checkDeployStatus();
+    }).catch((err) => {
+      activeDeploy = false;
+      messages.logTransferFailed(err);
+      return checkDeployStatus();
+    });
 }
 
 
