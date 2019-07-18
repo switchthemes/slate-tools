@@ -19,18 +19,13 @@ const utils = require('./includes/utilities.js');
  * @private
  */
 function deploy(env) {
-  return new Promise((resolve, reject) => {
-    debug(`themekit cwd to: ${config.dist.root}`);
-
-    themekit.command('deploy', {
-      env,
-    }, {
-      cwd: config.dist.root,
-    }).then(resolve())
-      .catch((err) => {
-        reject();
-        messages.logTransferFailed(err);
-      });
+  debug(`themekit cwd to: ${config.dist.root}`);
+  return themekit.command('deploy', {
+    env,
+  }, {
+    cwd: config.dist.root,
+  }).catch((err) => {
+    messages.logTransferFailed(err);
   });
 }
 
