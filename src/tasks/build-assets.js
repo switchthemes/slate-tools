@@ -17,6 +17,9 @@ const assetsPaths = [
   config.src.locales,
   config.src.config,
   config.src.layout,
+  config.src.content,
+  config.src.pages,
+  config.src.frames,
 ];
 
 /**

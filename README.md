@@ -1,29 +1,14 @@
-# @shopify/slate-tools
-[![CircleCI](https://circleci.com/gh/Shopify/slate-tools.svg?style=svg&circle-token=0b8147527ef88134b4238064a563ceaaae98f06a)](https://circleci.com/gh/Shopify/slate-tools)
+# switchthemes/slate-tools
+Slate 0.x for Section themes
 
-Tooling for Shopify themes using [Slate](https://github.com/Shopify/slate).
+Based on [stylehatch/slate-tools](https://github.com/stylehatch/slate-tools)
 
-Best used in conjunction with the [Slate CLI](https://www.npmjs.com/package/@shopify/slate) package.
+## Update Themekit binaries
 
-## Installation
-```bash
-$ npm install @shopify/slate-tools
-```
+Make sure Themekit is updated:
 
-## Documentation
+`theme version`   
+`theme update`
 
-For full API documentation checkout the [API docs](https://shopify.github.io/slate/).
-
-## Contributing
-For help on setting up the repo locally, building, testing, and contributing
-please see [CONTRIBUTING.md](https://github.com/Shopify/slate-tools/blob/master/CONTRIBUTING.md).
-
-## Code of Conduct
-All developers who wish to contribute through code or issues, take a look at the
-[CODE_OF_CONDUCT.md](https://github.com/Shopify/slate-tools/blob/master/CODE_OF_CONDUCT.md).
-
-## License
-
-MIT, see [LICENSE.md](http://github.com/Shopify/slate-tools/blob/master/LICENSE.md) for details.
-
-<img src="https://cdn.shopify.com/shopify-marketing_assets/builds/19.0.0/shopify-full-color-black.svg" width="200" />
+`node_modules/@shopify/themekit/bin/theme version`   
+`node_modules/@shopify/themekit/bin/theme update`
