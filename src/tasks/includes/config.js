@@ -63,7 +63,7 @@ const config = {
     config: 'src/config/*',
     layout: 'src/layout/*',
     pages: 'src/pages/*',
-    frames: 'src/frame/*',
+    frame: 'src/frame/*',
     content: 'src/content/*',
   },
 
@@ -76,7 +76,7 @@ const config = {
     templates: 'dist/templates/',
     locales: 'dist/locales/',
     pages: 'dist/pages/',
-    frames: 'dist/frame/',
+    frame: 'dist/frame/',
     content: 'dist/content/',
   },
 
