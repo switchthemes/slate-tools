@@ -4,6 +4,8 @@ const chokidar = require('chokidar');
 const vinylPaths = require('vinyl-paths');
 const del = require('del');
 const size = require('gulp-size');
+const replace = require('gulp-replace');
+const fs = require('fs');
 
 const config = require('./includes/config.js');
 const utils = require('./includes/utilities.js');
@@ -23,6 +25,27 @@ const assetsPaths = [
 ];
 
 /**
+ * Inlines files inside the `/src/inline` directory
+ *
+ * @param {String} file
+ * @returns {Stream}
+ * @private
+ */
+
+function inlineSnippets(fileName) {
+  try {
+    const data = fs.readFileSync(`./src/inline/${fileName}.liquid`);
+    return data;
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      return `Inline snippet '${fileName}' not found.`;
+    } else {
+      throw err;
+    }
+  }
+}
+
+/**
  * Copies assets to the `/dist` directory
  *
  * @param {Array} files
@@ -32,6 +55,9 @@ const assetsPaths = [
 function processAssets(files) {
   messages.logProcessFiles('build:assets');
   return gulp.src(files, {base: config.src.root})
+    .pipe(replace(/\{%-?\n? +inline '([a-z0-9-]+)'(.|\n)+?(?=-?%\})-?%\}/g, (match, p1) => {
+      return inlineSnippets(p1);
+    }))
     .pipe(plumber(utils.errorHandler))
     .pipe(size({
       showFiles: true,
