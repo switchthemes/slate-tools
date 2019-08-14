@@ -55,7 +55,7 @@ function inlineSnippets(fileName) {
 function processAssets(files) {
   messages.logProcessFiles('build:assets');
   return gulp.src(files, {base: config.src.root})
-    .pipe(replace(/\{%-?\n? +inline '([a-z0-9-]+)'(.|\n)+?(?=-?%\})-?%\}/g, (match, p1) => {
+    .pipe(replace(/\{%-?\s*inline\s*['"]([a-z0-9_-]+)['"]\s*-?%\}/g, (match, p1) => {
       return inlineSnippets(p1);
     }))
     .pipe(plumber(utils.errorHandler))
