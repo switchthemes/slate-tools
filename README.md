@@ -1,7 +1,5 @@
-# switchthemes/slate-tools
+# stylehatch/slate-tools
 Slate 0.x for Section themes
-
-Based on [stylehatch/slate-tools](https://github.com/stylehatch/slate-tools)
 
 ## Update Themekit binaries
 
