@@ -54,11 +54,11 @@ gulp.task('deploy:sync-init', () => {
     snippetOptions: {
       rule: {
         match: /<\/body>/i,
-        fn: function (snippet, match) {
-            return snippet + match;
-        }
-      }
-    }
+        fn(snippet, match) {
+          return snippet + match;
+        },
+      },
+    },
   });
 });
 
