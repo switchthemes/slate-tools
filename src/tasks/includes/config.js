@@ -51,9 +51,12 @@ const config = {
     js: 'src/scripts/**/*.{js,js.liquid}',
     vendorJs: 'src/scripts/vendor/**/*.js',
     json: 'src/**/*.json',
-    css: 'src/styles/**/*.{css,scss,scss.liquid}',
-    cssLint: 'src/styles/**/*.{css,scss}',
-    vendorCss: 'src/styles/vendor/*.{css,scss}',
+    css: 'src/styles/**/*.css',
+    cssLint: 'src/styles/**/*.css',
+    vendorCss: 'src/styles/vendor/*.css',
+    scss: 'src/styles/**/*.scss',
+    scssLint: 'src/styles/**/*.scss',
+    vendorScss: 'src/styles/vendor/*.scss',
     assets: 'src/assets/**/*',
     icons: 'src/icons/**/*.svg',
     templates: 'src/templates/**/*',
@@ -83,7 +86,8 @@ const config = {
   roots: {
     js: 'src/scripts/*.{js,js.liquid}',
     vendorJs: 'src/scripts/vendor.js',
-    css: 'src/styles/*.{css,scss}',
+    css: 'src/styles/*.css',
+    scss: 'src/styles/*.scss',
   },
 
   plugins: {
