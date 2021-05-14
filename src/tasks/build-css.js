@@ -42,9 +42,6 @@ function processScss() {
   return gulp.src(config.roots.scss)
     .pipe(plumber(utils.errorHandler))
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(config.dist.assets))
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(extReplace('.min.css'))
     .pipe(gulp.dest(config.dist.assets));
 }
 
